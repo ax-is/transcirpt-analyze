@@ -122,5 +122,3 @@ This project is licensed under the [MIT License](LICENSE).
 - Extend to support multiple AI models and other languages.
 
 ---
-
-This version is now back to using bullet points (`*`) for GitHub compatibility! Let me know if you need anything else. 😊
