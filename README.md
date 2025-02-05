@@ -112,11 +112,6 @@ transcript-analysis-api/
 
 ---
 
-## 📝 License
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 ## 💡 Future Enhancements
 - Add authentication and role-based access control.
 - Implement detailed error handling and logging mechanisms.
@@ -124,29 +119,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 📄 Code Overview
-
-### `main.py`
-- Defines the FastAPI application and the `/analyze-transcript/` endpoint.
-- Dynamically selects the AI service based on the provided `ServiceEnum`.
-- Combines headers and descriptions into a prompt for the AI model.
-- Handles exceptions and returns appropriate HTTP error responses.
-
-### `schemas.py`
-- Contains Pydantic models for request validation.
-- Defines `ServiceEnum` for supported AI services and `TranscriptAnalysisRequest` for the request body.
-
-### `services/base.py`
-- Provides a base class `GenAIParent` for AI services.
-- Implements a registry pattern to dynamically load service classes.
-- Requires subclasses to define a `service_name` and implement the `getAnalytics` method.
-
-### `services/gemini.py`
-- Implements the `Gemini` service class, which interacts with the Gemini AI model.
-- Configures the Gemini API and generates responses in JSON format.
-- Handles errors and returns parsed analytics or error messages.
+## 📝 License
+This project is licensed under the [MIT License](LICENSE).
 
 ---
-
-## 📜 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
