@@ -2,8 +2,8 @@ import google.generativeai as genai
 from services.base import GenAIParent
 import json
 
-class test(GenAIParent):
-    service_name = "test"
+class Gemini(GenAIParent):
+    service_name = "Gemini"
 
     def __init__(self):
         genai.configure(api_key="YOUR API KEY")
