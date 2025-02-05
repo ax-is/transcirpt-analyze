@@ -6,7 +6,7 @@ class test(GenAIParent):
     service_name = "test"
 
     def __init__(self):
-        genai.configure(api_key="AIzaSyAPknYECJz-CQBJ530ofC0CpSnyMnFwGSk")
+        genai.configure(api_key="YOUR API KEY")
         self.model = genai.GenerativeModel("gemini-1.5-flash")
 
     async def getAnalytics(self, transcript: str, prompt: str):
