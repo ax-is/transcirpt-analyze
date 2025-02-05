@@ -17,9 +17,10 @@ A FastAPI-based application that uses Gemini's generative AI model to analyze ch
 ```
 transcript-analysis-api/
 ├── main.py                # FastAPI app and endpoint definitions
-├── gemini_processor.py    # Handles interaction with Gemini AI
-├── schema.py              # Pydantic models for request validation
-├── service_manager.py     # Business logic and service coordination
+├── services/
+│   ├── base.py            # Base class for AI services
+│   └── gemini.py          # Handles interaction with Gemini AI
+├── schemas.py             # Pydantic models for request validation
 ├── requirements.txt       # Python dependencies
 ├── README.md              # Documentation
 └── .gitignore             # Ignored files in version control
@@ -56,7 +57,7 @@ transcript-analysis-api/
    ```
 
 4. **Add your Gemini API key**:
-   - Open `gemini_processor.py` and replace the placeholder `AIzaSyAOipTAG6P...` with your **Gemini API key**.
+   - Open `services/gemini.py` and replace the placeholder `AIzaSyAPknYECJz-CQBJ530ofC0CpSnyMnFwGSk` with your **Gemini API key**.
 
 ---
 
@@ -122,3 +123,30 @@ This project is licensed under the [MIT License](LICENSE).
 - Extend to support multiple AI models and other languages.
 
 ---
+
+## 📄 Code Overview
+
+### `main.py`
+- Defines the FastAPI application and the `/analyze-transcript/` endpoint.
+- Dynamically selects the AI service based on the provided `ServiceEnum`.
+- Combines headers and descriptions into a prompt for the AI model.
+- Handles exceptions and returns appropriate HTTP error responses.
+
+### `schemas.py`
+- Contains Pydantic models for request validation.
+- Defines `ServiceEnum` for supported AI services and `TranscriptAnalysisRequest` for the request body.
+
+### `services/base.py`
+- Provides a base class `GenAIParent` for AI services.
+- Implements a registry pattern to dynamically load service classes.
+- Requires subclasses to define a `service_name` and implement the `getAnalytics` method.
+
+### `services/gemini.py`
+- Implements the `Gemini` service class, which interacts with the Gemini AI model.
+- Configures the Gemini API and generates responses in JSON format.
+- Handles errors and returns parsed analytics or error messages.
+
+---
+
+## 📜 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
